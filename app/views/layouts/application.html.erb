@@ -11,9 +11,10 @@
   </head>
 
   <body>
-  <%= render "components/navbar" %>
-
+    <%= render "components/navbar" %>
     <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= render "components/footer" %>
   </body>
 </html>
