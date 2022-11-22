@@ -1,0 +1,5 @@
+<h1>all bookings here</h1>
+<%# <% raise %>
+<% @bookings.each do |booking| %>
+  <p><%= booking.theorist.stage_name %> on <%= booking.start_date %></p>
+<% end %>
