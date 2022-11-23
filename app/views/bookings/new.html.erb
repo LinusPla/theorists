@@ -1,1 +1,14 @@
-<h2>create a new booking</h2>
+<form action="reservation.php" method="post">
+
+  <div class="elem-group inlined">
+    <label for="checkin-date">Check-in Date</label>
+    <input type="date" id="checkin-date" name="checkin" required>
+  </div>
+  <br>
+  <div class="elem-group inlined">
+      <label for="checkout-date">Check-out Date</label>
+      <input type="date" id="checkout-date" name="checkout" required>
+  </div>
+  <br>
+  <button type="submit">Book this Fruitcake NOW!</button>
+</form>

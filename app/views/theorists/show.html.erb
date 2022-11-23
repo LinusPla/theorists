@@ -1,1 +1,16 @@
-<h1>Pages#show</h1>
+<div class="profile">
+        <img src="https://i.pravatar.cc/150?img" alt="" class="photo">
+        <span class="name"><%= @theorist.stage_name %></span>
+        <br>
+        <span class="details"><%= @theorist.main_theory %></span>
+        <br>
+        <br>
+        <div class="buttons">
+            <div class="button booking">
+                <br>
+                <%= link_to "Book now!", new_theorist_booking_path(@theorist, @booking) %>
+            </div>
+            <div class="button review">
+            </div>
+        </div>
+    </div>
