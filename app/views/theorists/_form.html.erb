@@ -1,15 +1,8 @@
-<%= form_with model: theorist do |f| %>
-  <%= f.label :stage_name %>
-  <%= f.text_field :stage_name %>
-  <%= f.label :main_theory %>
-  <%= f.text_field :main_theory %>
-  <%= f.label :sources %>
-  <%= f.text_field :sources %>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :rating %>
-  <%= f.number_field :rating %>
-  <%= f.submit %>
+<%= simple_form_for(theorist) do |f| %>
+  <%= f.input :stage_name, placeholder: "" %>
+  <%= f.input :main_theory, placeholder: "" %>
+  <%= f.input :sources, placeholder: "" %>
+  <%= f.input :price, hint: "in equivalent USD" %>
+  <%= f.input :location, hint: "It can't be the Moon, because that one does not exist" %>
+  <%= f.submit class: "btn btn-flat"%>
 <% end %>

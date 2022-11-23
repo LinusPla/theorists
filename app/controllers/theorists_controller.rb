@@ -10,7 +10,7 @@ class TheoristsController < ApplicationController
   def create
     @theorist = Theorist.new(theorist_params)
     @theorist.user = current_user
-    if @booking.save
+    if @theorist.save!
       redirect_to theorists_path
     else
       render :new, status: :unprocessable_entity
