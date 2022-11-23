@@ -4,7 +4,12 @@
 
   <% @theorists.each do |theorist| %>
   <div class="card-product m-2">
-    <img src=<%="https://i.pravatar.cc/150?img=#{rand(1..70)}"%> alt= <%= theorist.stage_name %>/>
+   <% if theorist.photo.key.nil? %>
+      <img src=<%="https://i.pravatar.cc/150?img=#{rand(1..70)}"%> alt= <%= theorist.stage_name %>/>
+    <% else %>
+   <%# <% raise %>
+      <%= cl_image_tag theorist.photo.key, crop: :fill %>
+    <% end %>
     <div class="card-product-infos">
       <h2><%= theorist.stage_name %></h2>
       <p>This theorist believes in the <strong> <%= theorist.main_theory %></strong> theory. Learn more about this theory <strong><%= link_to "here", theorist.sources, html_options = { target: "_blank"}%></strong></p>
