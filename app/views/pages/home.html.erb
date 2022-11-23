@@ -5,4 +5,35 @@
       <button class="btn btn-flat"> <%= link_to "Rent now", theorists_path %> </button>
     </div>
   </div>
+
+    
+<div class=title>
+<h1>Welcome to Conspiracy Tea-ory!</h1>
+<h4>Tea-time with inspiring people.</h4>
+</div>
+
+<div class=container>
+  <div class="grid">
+    <%@theorists.first(12).each do |theorist|%>
+    <div class="card-theorist">
+      <div class="image-rating-card">
+        <div class="image">
+          <img src=<%="https://i.pravatar.cc/150?img=#{rand(1..70)}"%>/>
+        </div>
+        <div class="card-theorist-infos">
+
+          <h2><%=theorist.stage_name%></h2>
+          <p><%=theorist.main_theory%></p>
+        </div>
+      </div>
+      <div class="rating-and-price">
+        <div class="rating">
+          <h2 class="card-theorist-rating"><%=rand(0.1...5.0).round(1)%>/5</h2>
+        </div>
+        <div class="price">
+          <h2 class="card-theorist-pricing">from <%=rand(45.00...500.00).round(2)%>€</h2>
+        </div>
+      </div>
+    </div>
+    <%end%>
 </div>

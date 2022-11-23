@@ -1,6 +1,67 @@
 // Specific CSS for your home-page
-// .banner{
-//   p{
-//     background-color: rgb(247, 255, 7);
-//   }
-// }
+#map {
+  height: 100vh;
+}
+
+.card-theorist {
+  overflow: hidden;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: flex;
+}
+
+.image-rating-card{
+  height: 150px;
+  object-fit: contain;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-theorist h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-theorist p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-theorist .card-theorist-infos {
+  padding: 16px;
+  display: flex wrap;
+  justify-content: space-between;
+  align-items: flex;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 5%;
+  padding-bottom: 1%;
+}
+
+.rating-and-price{
+  justify-content: space-between;
+  display: flex;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 200px 200px 200px;
+  -moz-column-gap: 10px;
+  column-gap: 15px;
+  row-gap: 15px;
+  background-color: rgb(250, 248, 248);
+  border-color: black;
+}
+
+.title {
+  padding-left: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
