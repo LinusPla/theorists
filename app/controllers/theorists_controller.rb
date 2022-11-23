@@ -34,7 +34,7 @@ class TheoristsController < ApplicationController
 private
 
   def theorist_params
-    params.require(:theorist).permit(:stage_name, :main_theory, :sources, :price, :location)
+    params.require(:theorist).permit(:stage_name, :main_theory, :sources, :price, :location, :photo)
   end
 
 end
