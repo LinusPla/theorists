@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
+    @theorists = Theorist.all
   end
-  
+
   def edit
   end
 
