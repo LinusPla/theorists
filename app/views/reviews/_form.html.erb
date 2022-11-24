@@ -1,0 +1,8 @@
+<div class="container">
+<%= simple_form_for [locals[:theorist], locals[:review]] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.input :booking_date %>
+  <%= f.submit class: "btn btn-flat"%>
+<% end %>
+</div>
