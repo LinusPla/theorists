@@ -29,6 +29,9 @@ class TheoristsController < ApplicationController
 
   def show
     @theorist = Theorist.find(params[:id])
+    @booking = Booking.new
+    @bookings = Booking.where(theorist: @theorist)
+
   end
 
 private
