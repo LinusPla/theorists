@@ -82,3 +82,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main
 # cloudinary
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
+
+# search gem 
+gem "pg_search"
