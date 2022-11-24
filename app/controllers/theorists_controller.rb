@@ -29,6 +29,7 @@ class TheoristsController < ApplicationController
 
   def show
     @theorist = Theorist.find(params[:id])
+    @review = Review.new
   end
 
 private
