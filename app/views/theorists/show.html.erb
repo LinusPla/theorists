@@ -1,7 +1,3 @@
-
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-sm">
@@ -19,6 +15,30 @@
   </div>
 </div>
 
+<div class="container theorist-show-card">
+  <div class="profile">
+    <h2 class="name"><%= @theorist.stage_name %></h2>
+    <div class = d-flex>
+      <img src="https://i.pravatar.cc/150?img" alt="" class="photo">
+      <br>
+      <div class="details p-2">
+        <p><%= @theorist.stage_name %> focuses mainly on <%= @theorist.main_theory %>.</p>
+        <br>
+        <%= link_to "link to theory", @theorist.sources, class: "btn btn-flat" %>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div class="booking-form">
+    <h3>book <%= @theorist.stage_name %> here:</h3>
+    <br>
+    <%= render "bookings/form", locals: {theorist: @theorist, booking: @booking} %>
+  </div>
+</div>
+  <div class="container">
+    <%= render "bookings/index" %>
+  </div>
+
 <%# Sorry for this, just the syntaxes %>
 
 <%= render "reviews/form", locals: {theorist: @theorist, review: @review} %>
@@ -27,4 +47,4 @@
   <% @theorist.reviews.each do |review| %>
         <p><%= review.comment %></p>
        <p><%= review.rating %></p>
-       <% end %>
+  <% end %>
