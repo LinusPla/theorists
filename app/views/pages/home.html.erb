@@ -12,15 +12,17 @@
 </div>
 
 <div class="container">
+<div class="row">
+
   <div class="grid">
-    <%@theorists.first(12).each do |theorist|%>
-      <%= link_to theorist_path(theorist), style:"text-decoration: none; color: black" do %>
-        <div class="card-theorist">
-          <div class="image-rating-card">
-            <div class="image">
-              <img src=<%="https://i.pravatar.cc/150?img=#{rand(1..70)}"%>/>
-            </div>
-            <div class="card-theorist-infos">
+    <%@theorists.first(16).each do |theorist|%>
+    <div class="card-theorist">
+      <div class="image-rating-card">
+        <div class="image">
+          <img src=<%="https://i.pravatar.cc/150?img=#{rand(1..70)}"%>/>
+        </div>
+        <div class="card-theorist-infos">
+
 
               <h2><%=theorist.stage_name%></h2>
               <p><%=theorist.main_theory%></p>
@@ -37,4 +39,6 @@
         </div>
       <% end %>
     <%end%>
+
+    <%# </div>
 </div>
