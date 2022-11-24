@@ -36,9 +36,10 @@
   justify-content: space-between;
   align-items: flex;
   padding-left: 3%;
-  padding-right: 3%;
+  padding-right: 5%;
   padding-top: 5%;
   padding-bottom: 1%;
+  text-decoration: none;
 }
 
 .rating-and-price{
@@ -62,11 +63,9 @@
 }
 
 .title {
-  padding-left: 3%;
   padding-top: 3%;
   padding-bottom: 3%;
 }
-
 
 
 @media only screen and (min-width: 1300px) {
@@ -91,4 +90,3 @@
   .grid {
     grid-template-columns: 1fr;
   }
-}
