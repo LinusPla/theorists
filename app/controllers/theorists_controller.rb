@@ -29,6 +29,8 @@ class TheoristsController < ApplicationController
 
   def show
     @theorist = Theorist.find(params[:id])
+    @booking = Booking.new
+    @bookings = Booking.where(theorist: @theorist)
     @review = Review.new
   end
 

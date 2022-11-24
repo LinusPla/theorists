@@ -1,23 +1,26 @@
 class BookingsController < ApplicationController
   def index
     # @user = current_user
-    @bookings = Booking.all
+    @theorist = Theorist.find(params[:theorist_id])
+    @bookings = Booking.where(theorist: @theorist)
   end
 
   def show
+    @theorist = Theorist.find(params[:theorist_id])
     @booking = Booking.find(params[:id])
   end
 
   def new
     @booking = Booking.new
+    @theorist = Theorist.find(params[:theorist_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.theorist = params[:theorist_id]
+    @booking.theorist = Theorist.find(params[:theorist_id])
     if @booking.save
-      redirect_to theorist_bookings_path
+      redirect_to theorist_path(@booking.theorist)
     else
       render :new, status: :unprocessable_entity
     end
