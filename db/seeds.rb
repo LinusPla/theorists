@@ -88,12 +88,21 @@ Theorist.create(
   photonum: rand(1..70)
 )
 
-Theorist(
-  stage_name: "Richie ",
-  main_theory: "The moon landings? my foot mate",
-  sources: ,
-  price: 400,
-  location: "Teufelsberg",
+Theorist.create(
+  stage_name: "Georgy Waters",
+  main_theory: "Fluride is making us docile dude",
+  sources: "https://en.wikipedia.org/wiki/Water_fluoridation_controversy",
+  price: 300,
+  location: "Berghain",
+  user_id: User.all.sample.id
+)
+
+Theorist.create(
+  stage_name: "Liam Malone",
+  main_theory: "The Us election was rigged",
+  sources: "https://en.wikipedia.org/wiki/Italygate",
+  price: 250,
+  location: "American Embassy, Berlin",
   user_id: User.all.sample.id
 )
 
