@@ -1,14 +1,17 @@
 <div class="container">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://hbr.org/resources/images/article_assets/2020/07/Jul20_30_FraziskaBarczyk-1024x576.jpg)">
-    <h1>all your bookings</h1>
+    <h1>All your bookings</h1>
   </div>
 </div>
 
 <div class="container">
+  <div class="d-flex px-5 justify-content-center">
+    <%= link_to "back to theorists", theorists_path, class: "btn btn-light btn-block center" %>
+  </div>
   <div class="row">
     <div class="col-sm">
       <% my_bookings = @bookings.where(user: @user) %>
-      <h4 class="m-2">your bookings with theorists</h4>
+      <h4 class="m-2">Your bookings with theorists</h4>
       <div>
         <% my_bookings.each do |booking| %>
           <div class="border m-2 p-2">
@@ -21,7 +24,7 @@
     <div class="col-sm">
       <% my_theorists = Theorist.all.where (:user == @user)%>
       <% my_bookings = @bookings.where (:theorist == my_theorists)%>
-      <h4 class="m-2">bookings with your theorists</h4>
+      <h4 class="m-2">Bookings with your theorists</h4>
       <div>
         <% my_bookings.each do |booking| %>
           <div class="border m-2 p-2">
