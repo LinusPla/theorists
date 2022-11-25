@@ -95,6 +95,24 @@ Theorist.create(
 )
 
 Theorist.create(
+  stage_name: "Georgy Waters",
+  main_theory: "Fluride is making us docile dude",
+  sources: "https://en.wikipedia.org/wiki/Water_fluoridation_controversy",
+  price: 300,
+  location: "Berghain",
+  user_id: User.all.sample.id
+)
+
+Theorist.create(
+  stage_name: "Liam Malone",
+  main_theory: "The Us election was rigged",
+  sources: "https://en.wikipedia.org/wiki/Italygate",
+  price: 250,
+  location: "American Embassy, Berlin",
+  user_id: User.all.sample.id
+)
+
+Theorist.create(
   stage_name: "Richie Cummins",
   main_theory: "Tinfoil hats save lives man",
   sources:"https://en.wikipedia.org/wiki/Tin_foil_hat",
