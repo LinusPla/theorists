@@ -41,7 +41,7 @@
                     <% total_rating += review.rating %>
                   <% end %>
                 <% theorist_rating = total_rating / theorist.reviews.length %>
-                <%= theorist_rating %>/5
+                <%= theorist_rating.round(2) %>/5
                 <%end%>
               </h2>
             </div>
