@@ -10,6 +10,7 @@
       placeholder: "search by theorist or by theory"
     %>
     <%= submit_tag "Search", class: "btn btn-flat" %>
+    <button type="button" class="btn btn-flat"> <%= link_to "Add new Theorist", new_theorist_path, class: 'text-nowrap' %> </button>
   <% end %>
 
   <% @theorists.each do |theorist| %>
