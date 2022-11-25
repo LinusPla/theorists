@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 # require "faker"
 puts "destorxying db"
+Review.destroy_all
 Booking.destroy_all
 Theorist.destroy_all
 User.destroy_all
@@ -41,7 +42,7 @@ end
 
 # p theory_hash
 
-15.times do
+20.times do
   theory = theory_hash.keys.sample
   # p theory
   # p theory_hash[theory]
@@ -51,7 +52,8 @@ end
     sources: theory_hash[theory],
     price: rand(0..1000),
     location: Faker::Address.city,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    photonum: rand(1..70)
   )
 end
 
@@ -62,5 +64,17 @@ puts "creating bookings"
     theorist_id: Theorist.all.sample.id,
     start_date: Faker::Date.between(from: 200.days.ago, to: 100.days.ago),
     end_date: Faker::Date.between(from: 100.days.ago, to: Date.today)
+  )
+end
+
+puts "creating reviews"
+
+100.times do
+  Review.create(
+    comment: Faker::Restaurant.review,
+    rating: rand(0..5),
+    booking_date: Faker::Date.backward(days: 300),
+    user_id: User.all.sample.id,
+    theorist_id: Theorist.all.sample.id,
   )
 end

@@ -1,6 +1,12 @@
 class TheoristsController < ApplicationController
   def index
-    @theorists = Theorist.all
+    if params[:query].present?
+      # sql_query = "stage_name ILIKE :query OR main_theory ILIKE :query"
+      # @theorists = Theorist.where(sql_query, query: "%#{params[:query]}%")
+      @theorists = Theorist.search_by_stage_name_and_main_theory(params[:query])
+    else
+      @theorists = Theorist.all
+    end
   end
 
   def new

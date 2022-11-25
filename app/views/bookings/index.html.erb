@@ -1,0 +1,12 @@
+<div class="container m-2">
+  <h1>all your bookings</h1>
+  <% my_bookings = @bookings.where(user: @user) %>
+  <div class="booking-cards">
+    <% my_bookings.each do |booking| %>
+      <div class="booking-card m-2">
+        <p><strong><%= booking.theorist.stage_name %></strong></p>
+        <p>Booking from <%= booking.start_date %> <%= booking.end_date %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

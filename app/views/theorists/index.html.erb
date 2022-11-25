@@ -1,11 +1,22 @@
 <div class="container">
+  <div class="text-center">
   <h1>Overview of our theorists</h1>
-  <br>
+  </div>
+  <div class="search-bar">
+  <%= form_with url: theorists_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "search by theorist or by theory"
+  %>
+  <%= submit_tag "Search", class: "btn btn-flat" %>
+<% end %>
+</div>
 
   <% @theorists.each do |theorist| %>
   <div class="card-product m-2">
    <% if theorist.photo.key.nil? %>
-      <img src=<%="https://i.pravatar.cc/150?img=#{rand(1..70)}"%> alt= <%= theorist.stage_name %>/>
+      <img src=<%="https://i.pravatar.cc/150?img=#{theorist.photonum.to_i}"%> alt= <%= theorist.stage_name %>/>
     <% else %>
    <%# <% raise %>
       <%= cl_image_tag theorist.photo.key, crop: :fill %>
@@ -19,6 +30,6 @@
   </div>
   <% end %>
 
-  <%= link_to "add theorist", new_theorist_path, class:"btn btn-primary" %>
+  <%= link_to "add theorist", new_theorist_path, class:"btn btn-flat" %>
 
 </div>
