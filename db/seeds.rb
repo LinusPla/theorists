@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # require "faker"
-puts "destorxying db"
+puts "destorying db"
 Review.destroy_all
 Booking.destroy_all
 Theorist.destroy_all
@@ -35,10 +35,15 @@ end
 theory_hash = {}
 
 html_doc.search(".hatnote").each do |element|
-  # p "https://en.wikipedia.org/" + element.children[1].attribute("href").value
-  # p element.search("a").text
-  theory_hash[element.search("a").text] = "https://en.wikipedia.org/" + element.children[1].attribute("href").value
+  theory = element.search("a").text
+  theory_url = "https://en.wikipedia.org/" + element.children[1].attribute("href").value
+  theory_file = URI.open(theory_url).read
+  theory_doc = Nokogiri::HTML(theory_file)
+  theory_description = theory_doc.search("p").first.text.strip
+  theory_hash[theory] = [theory_url, theory_description]
 end
+
+theory_hash.reject!{ |t| t == ("dynamic listadding missing itemsreliable sources")}
 
 # p theory_hash
 
@@ -49,7 +54,8 @@ end
   Theorist.create(
     stage_name: Faker::Name.name,
     main_theory: theory,
-    sources: theory_hash[theory],
+    sources: theory_hash[theory][0],
+    theory_description: theory_hash[theory][1],
     price: rand(0..1000),
     location: Faker::Address.city,
     user_id: User.all.sample.id,
