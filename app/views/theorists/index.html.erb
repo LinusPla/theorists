@@ -9,7 +9,7 @@
       class: "form-control",
       placeholder: "search by theorist or by theory"
     %>
-    <%= submit_tag "Search", class: "btn btn-flat" %>
+    <%= submit_tag "Search", class: "btn btn-search" %>
     <button type="button" class="btn btn-flat"> <%= link_to "Add new Theorist", new_theorist_path, class: 'text-nowrap' %> </button>
   <% end %>
 
@@ -28,6 +28,7 @@
           <p>Based in <strong> <%= theorist.location %></strong> and charging <%= theorist.price.to_i %>€ / hour</strong>.</p>
         </div>
       </div>
+    <% end %>
     <% end %>
     <div class="d-flex px-5 justify-content-center">
       <button type="button" class="btn btn-light btn-block center"> <%= link_to "See all Theorist", theorists_path %> </button>
