@@ -1,17 +1,16 @@
 <div class="container">
-  <div class="text-center">
-  <h1>Overview of our theorists</h1>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://hbr.org/resources/images/article_assets/2020/07/Jul20_30_FraziskaBarczyk-1024x576.jpg)">
+    <h1>Overview of our theorists</h1>
   </div>
   <div class="search-bar">
   <%= form_with url: theorists_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "search by theorist or by theory"
-  %>
-  <%= submit_tag "Search", class: "btn btn-flat" %>
-<% end %>
-</div>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "search by theorist or by theory"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+  <% end %>
 
   <% @theorists.each do |theorist| %>
     <%=link_to theorist_path(theorist) do %>
@@ -32,5 +31,4 @@
   <% end %>
 
   <%= link_to "add theorist", new_theorist_path, class:"btn btn-flat" %>
-
 </div>

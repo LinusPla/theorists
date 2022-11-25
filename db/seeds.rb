@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # require "faker"
-puts "destorxying db"
+puts "destorying db"
 Review.destroy_all
 Booking.destroy_all
 Theorist.destroy_all
@@ -35,10 +35,15 @@ end
 theory_hash = {}
 
 html_doc.search(".hatnote").each do |element|
-  # p "https://en.wikipedia.org/" + element.children[1].attribute("href").value
-  # p element.search("a").text
-  theory_hash[element.search("a").text] = "https://en.wikipedia.org/" + element.children[1].attribute("href").value
+  theory = element.search("a").text
+  theory_url = "https://en.wikipedia.org/" + element.children[1].attribute("href").value
+  theory_file = URI.open(theory_url).read
+  theory_doc = Nokogiri::HTML(theory_file)
+  theory_description = theory_doc.search("p").first.text.strip
+  theory_hash[theory] = [theory_url, theory_description]
 end
+
+theory_hash.reject!{ |t| t == ("dynamic listadding missing itemsreliable sources")}
 
 # p theory_hash
 
@@ -49,13 +54,55 @@ end
   Theorist.create(
     stage_name: Faker::Name.name,
     main_theory: theory,
-    sources: theory_hash[theory],
+    sources: theory_hash[theory][0],
+    theory_description: theory_hash[theory][1],
     price: rand(0..1000),
     location: Faker::Address.city,
     user_id: User.all.sample.id,
     photonum: rand(1..70)
   )
 end
+
+Theorist.create(
+  stage_name: "Leroy 'lizard eyes' Jenkins",
+  main_theory: "The Reptilian Elite",
+  sources: "https://content.time.com/time/specials/packages/article/0,28804,1860871_1860876_1861029,00.html",
+  price: 500,
+  location: "Goerlitzer Park",
+  user_id: User.all.sample.id,
+  photonum: rand(1..70)
+)
+
+
+Theorist.create(
+  stage_name: "Jimmy 'let it rip' Jameson",
+  main_theory: "Corona is a load of rubbish",
+  sources: "https://en.wikipedia.org/wiki/COVID-19_misinformation",
+  price: 400,
+  location: "Teufelsberg",
+  user_id: User.all.sample.id,
+  photonum: rand(1..70)
+)
+
+Theorist.create(
+  stage_name: "Timmy 'Moon Boots' Manchild",
+  main_theory: "The moon landings, my foot mate",
+  sources: "https://www.theguardian.com/science/2019/jul/10/one-giant-lie-why-so-many-people-still-think-the-moon-landings-were-faked",
+  price: 400,
+  location: "Armstrongstr. 0",
+  user_id: User.all.sample.id,
+  photonum: rand(1..70)
+)
+
+Theorist(
+  stage_name: "Richie ",
+  main_theory: "The moon landings? my foot mate",
+  sources: ,
+  price: 400,
+  location: "Teufelsberg",
+  user_id: User.all.sample.id
+)
+
 
 puts "creating bookings"
 30.times do
