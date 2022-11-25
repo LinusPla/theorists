@@ -2,34 +2,31 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://hbr.org/resources/images/article_assets/2020/07/Jul20_30_FraziskaBarczyk-1024x576.jpg)">
     <h1>Overview of our theorists</h1>
   </div>
-  <span>
-    <div class="search-bar">
-      <%= form_with url: theorists_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
+  <div class="search-bar">
+  <%= form_with url: theorists_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "search by theorist or by theory" %>
-      <%= submit_tag "Search", class: "btn btn-search" %>
-      <button type="button" class="btn btn-flat"> <%= link_to "Add new Theorist", new_theorist_path, class: 'text-nowrap' %> </button>
-      <% end %>
-    </div>
-  </span>
+      placeholder: "search by theorist or by theory"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+  <% end %>
 
-  <div class="container">
-    <% @theorists.each do |theorist| %>
-    <div class="card-product m-2">
-      <% if theorist.photo.key.nil? %>
-          <img src=<%="https://i.pravatar.cc/150?img=#{theorist.photonum.to_i}"%> alt= <%= theorist.stage_name %>/>
-        <% else %>
-          <%= cl_image_tag theorist.photo.key, crop: :fill %>
-        <% end %>
-      <div class="card-product-infos">
-        <h2><%= theorist.stage_name %></h2>
-        <p>This theorist believes in the <strong> <%= theorist.main_theory %></strong> theory. Learn more about this theory <strong><%= link_to "here", theorist.sources, html_options = { target: "_blank"}%></strong></p>
-        <p>Based in <strong> <%= theorist.location %></strong> and charging <%= theorist.price.to_i %>€ / hour</strong>.</p>
-        <p><%= link_to "more information", theorist_path(theorist) %></p>
+  <% @theorists.each do |theorist| %>
+    <%=link_to theorist_path(theorist) do %>
+      <div class="card-product m-2">
+          <% if theorist.photo.key.nil? %>
+            <img src=<%="https://i.pravatar.cc/150?img=#{theorist.photonum.to_i}"%> alt= <%= theorist.stage_name %>/>
+          <% else %>
+          <%# <% raise %>
+            <%= cl_image_tag theorist.photo.key, crop: :fill %>
+          <% end %>
+        <div class="card-product-infos">
+          <h2><%= theorist.stage_name %></h2>
+          <p>This theorist believes in the <strong> <%= theorist.main_theory %></strong> theory.</p>
+          <p>Based in <strong> <%= theorist.location %></strong> and charging <%= theorist.price.to_i %>€ / hour</strong>.</p>
+        </div>
       </div>
-    </div>
     <% end %>
     <div class="d-flex px-5 justify-content-center">
       <button type="button" class="btn btn-light btn-block center"> <%= link_to "See all Theorist", theorists_path %> </button>

@@ -94,13 +94,14 @@ Theorist.create(
   photonum: rand(1..70)
 )
 
-Theorist(
-  stage_name: "Richie ",
-  main_theory: "The moon landings? my foot mate",
-  sources: ,
+Theorist.create(
+  stage_name: "Richie Cummins",
+  main_theory: "Tinfoil hats save lives man",
+  sources:"https://en.wikipedia.org/wiki/Tin_foil_hat",
   price: 400,
   location: "Teufelsberg",
-  user_id: User.all.sample.id
+  user_id: User.all.sample.id,
+  photonum: rand(1..70)
 )
 
 
