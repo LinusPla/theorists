@@ -29,7 +29,6 @@
   margin: 0;
 }
 
-
 .card-theorist .card-theorist-infos {
   padding: 16px;
   display: flex wrap;
@@ -58,8 +57,11 @@
   // -moz-column-gap: 10px;
   column-gap: 15px;
   row-gap: 15px;
-  background-color: white;
   border-color: black;
+  padding-top: 30px;
+  padding-right: 80px;
+  padding-bottom: 30px;
+  padding-left: 80px;
 }
 
 .title {
@@ -67,6 +69,15 @@
   padding-bottom: 3%;
 }
 
+a{
+  text-decoration: none;
+  color:black;
+}
+
+a:hover{
+  text-decoration: none;
+  color:black;
+}
 
 @media only screen and (min-width: 1300px) {
   .grid {

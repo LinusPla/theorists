@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   def index
-    # @user = current_user
-    @theorist = Theorist.find(params[:theorist_id])
-    @bookings = Booking.where(theorist: @theorist)
+    @user = current_user
+    # @theorist = Theorist.find(params[:theorist_id])
+    @bookings = Booking.all
   end
 
   def show

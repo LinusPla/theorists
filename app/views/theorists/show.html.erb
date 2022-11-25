@@ -1,25 +1,13 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <img src="https://i.pravatar.cc/150?img" class="rounded-circle"/>
-      <figcaption>Rating: </figcaption>
-    </div>
-    <div class="col-sm">
-       <h2><%= @theorist.stage_name %></h2>
-         <p><%= @theorist.main_theory %></p>
-    </div>
-    <div class="col-sm">
-      <div class="wrapper">
-</div>
-    </div>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://hbr.org/resources/images/article_assets/2020/07/Jul20_30_FraziskaBarczyk-1024x576.jpg)">
+    <h1><%= @theorist.stage_name %></h1>
   </div>
 </div>
-
 <div class="container theorist-show-card">
-  <div class="profile">
+    <div class="profile">
     <h2 class="name"><%= @theorist.stage_name %></h2>
     <div class = d-flex>
-      <img src="https://i.pravatar.cc/150?img" alt="" class="photo">
+      <img src=<%="https://i.pravatar.cc/150?img=#{@theorist.photonum.to_i}"%> alt="" class="rounded-circle">
       <br>
       <div class="details p-2">
         <p><%= @theorist.stage_name %> focuses mainly on <%= @theorist.main_theory %>.</p>
@@ -35,9 +23,6 @@
     <%= render "bookings/form", locals: {theorist: @theorist, booking: @booking} %>
   </div>
 </div>
-  <div class="container">
-    <%= render "bookings/index" %>
-  </div>
 
 <%# Sorry for this, just the syntaxes %>
 
@@ -48,3 +33,5 @@
         <p><%= review.comment %></p>
        <p><%= review.rating %></p>
   <% end %>
+
+  <%= link_to "back to theorists", theorists_path, class: "btn btn-flat" %>
