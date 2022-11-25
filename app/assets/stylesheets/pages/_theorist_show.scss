@@ -1,3 +1,6 @@
+#theorist-details {
+  margin-left: 24px;
+}
 .theorist-show-card {
   display: flex;
   justify-content: space-between;
@@ -13,10 +16,8 @@
 
 .booking-cards {
   display: flex;
-  margin-top: 60px;
 }
 .booking-card {
-  margin-right: 24px;
   overflow: hidden;
   height: 120px;
   width: 30%;

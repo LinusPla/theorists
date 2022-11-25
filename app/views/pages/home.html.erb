@@ -41,7 +41,7 @@
                     <% total_rating += review.rating %>
                   <% end %>
                 <% theorist_rating = total_rating / theorist.reviews.length %>
-                <%= theorist_rating %>/5
+                <%= theorist_rating.round(2) %>/5
                 <%end%>
               </h2>
             </div>
@@ -53,3 +53,7 @@
       <% end %>
     <%end%>
   </div>
+
+    <div class="d-flex px-5 justify-content-center">
+      <button type="button" class="btn btn-light btn-block"> <%= link_to "See all Theorist", theorists_path %> </button>
+    </div>

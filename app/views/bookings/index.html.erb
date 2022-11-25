@@ -1,12 +1,35 @@
-<div class="container m-2">
-  <h1>all your bookings</h1>
-  <% my_bookings = @bookings.where(user: @user) %>
-  <div class="booking-cards">
-    <% my_bookings.each do |booking| %>
-      <div class="booking-card m-2">
-        <p><strong><%= booking.theorist.stage_name %></strong></p>
-        <p>Booking from <%= booking.start_date %> <%= booking.end_date %></p>
+<div class="container">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://hbr.org/resources/images/article_assets/2020/07/Jul20_30_FraziskaBarczyk-1024x576.jpg)">
+    <h1>all your bookings</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <% my_bookings = @bookings.where(user: @user) %>
+      <h4 class="m-2">your bookings with theorists</h4>
+      <div>
+        <% my_bookings.each do |booking| %>
+          <div class="border m-2 p-2">
+            <p><strong><%= booking.theorist.stage_name %></strong></p>
+            <p>Booking from <%= booking.start_date %> <%= booking.end_date %></p>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="col-sm">
+      <% my_theorists = Theorist.all.where (:user == @user)%>
+      <% my_bookings = @bookings.where (:theorist == my_theorists)%>
+      <h4 class="m-2">bookings with your theorists</h4>
+      <div>
+        <% my_bookings.each do |booking| %>
+          <div class="border m-2 p-2">
+            <p><strong><%= booking.theorist.stage_name %></strong></p>
+            <p>Booking by <%= booking.user.email %> from <%= booking.start_date %> to <%= booking.end_date %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
