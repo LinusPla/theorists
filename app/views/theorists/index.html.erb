@@ -16,7 +16,7 @@
   <% @theorists.each do |theorist| %>
   <div class="card-product m-2">
    <% if theorist.photo.key.nil? %>
-      <img src=<%="https://i.pravatar.cc/150?img=#{rand(1..70)}"%> alt= <%= theorist.stage_name %>/>
+      <img src=<%="https://i.pravatar.cc/150?img=#{theorist.photonum.to_i}"%> alt= <%= theorist.stage_name %>/>
     <% else %>
    <%# <% raise %>
       <%= cl_image_tag theorist.photo.key, crop: :fill %>
