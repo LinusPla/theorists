@@ -1,0 +1,36 @@
+#theorist-details {
+  margin-left: 24px;
+}
+.theorist-show-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;;
+}
+
+.booking-form {
+  background-color: rgb(190, 88, 190);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 24px;
+}
+
+.booking-cards {
+  display: flex;
+}
+.booking-card {
+  overflow: hidden;
+  height: 120px;
+  width: 30%;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  align-items: center;
+  padding: 10px;
+}
+
+.profile {
+  background-color: rgb(190, 88, 190);
+  border-radius: 8px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  padding: 24px;
+  margin-right: 24px;
+}
