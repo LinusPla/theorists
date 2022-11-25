@@ -57,6 +57,47 @@ end
   )
 end
 
+Theorist.create(
+  stage_name: "Leroy 'lizard eyes' Jenkins",
+  main_theory: "The Reptilian Elite",
+  sources: "https://content.time.com/time/specials/packages/article/0,28804,1860871_1860876_1861029,00.html",
+  price: 500,
+  location: "Goerlitzer Park",
+  user_id: User.all.sample.id,
+  photonum: rand(1..70)
+)
+
+
+Theorist.create(
+  stage_name: "Jimmy 'let it rip' Jameson",
+  main_theory: "Corona is a load of rubbish",
+  sources: "https://en.wikipedia.org/wiki/COVID-19_misinformation",
+  price: 400,
+  location: "Teufelsberg",
+  user_id: User.all.sample.id,
+  photonum: rand(1..70)
+)
+
+Theorist.create(
+  stage_name: "Timmy 'Moon Boots' Manchild",
+  main_theory: "The moon landings, my foot mate",
+  sources: "https://www.theguardian.com/science/2019/jul/10/one-giant-lie-why-so-many-people-still-think-the-moon-landings-were-faked",
+  price: 400,
+  location: "Armstrongstr. 0",
+  user_id: User.all.sample.id,
+  photonum: rand(1..70)
+)
+
+Theorist(
+  stage_name: "Richie ",
+  main_theory: "The moon landings? my foot mate",
+  sources: ,
+  price: 400,
+  location: "Teufelsberg",
+  user_id: User.all.sample.id
+)
+
+
 puts "creating bookings"
 30.times do
   Booking.create(
